@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - INFINITY ITEMS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+        body {
+            background: #212529;
+            color: #fff;
+            line-height: 1.5;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        .bg-dark {
+            box-shadow: 0 0.2px 5px #00ffff;
+        }
+
+        .container img {
+            width: 75px;
+            height: auto;
+        }
+        /* Dropdown menüsü açıldığında arka plan transparan olsun */
+        .navbar-nav .dropdown-toggle::after {
+            display: none;
+        }
+        /*Üzerine gelindiğinde yazı rengini değiştir */
+        .navbar-nav:hover {
+            color: #00ffff !important;
+        }
+        /* Products dropdown'taki toggle butonundaki oku gizle */
+        .navbar-nav .nav-item .dropdown:hover .nav-link {
+            color: #00ffff !important;
+        }
+
+        .nav-item:hover {
+            color: #00ffff !important;
+        }
+        /* Menü açıldığında dropdown menüsünün arka plan rengi ve yazı rengi */
+        .navbar-nav .nav-item .dropdown:hover .dropdown-menu {
+            color: #ccc !important; /* Açık mavi yazı rengi */
+            background-color: #212529; /* Koyu gri arka plan */
+        }
+
+            .navbar-nav .nav-item .dropdown:hover .dropdown-menu:hover {
+                color: #00ffff !important;
+            }
+
+        .container1 {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col u {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #212529;
+            padding: 0 15px;
+        }
+
+        .col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+            .col h4 {
+                font-size: 18px;
+                color: white;
+                text-transform: capitalize;
+                margin-bottom: 35px;
+                font-weight: 500;
+                position: relative;
+            }
+
+                .col h4::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                    background-color: #00ffff;
+                    height: 2px;
+                    box-sizing: border-box;
+                    width: 50px;
+                }
+
+            .col ul li:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            .col ul li a {
+                font-size: 16px;
+                text-transform: capitalize;
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
+                color: #bbbbbb;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+                .col ul li a:hover {
+                    color: #00ffff;
+                    padding-left: 12px;
+                }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        //Products üzerine geldiğinde menü açılır.
+        $(document).ready(function () {
+            // Sayfa yüklendiğinde Products dropdown'unu açık konumda bırak
+            $('.nav-item.dropdown').mouseover(function () {
+                $(this).addClass('show');
+                $(this).find('.dropdown-menu').addClass('show');
+            }).mouseout(function () {
+                $(this).removeClass('show');
+                $(this).find('.dropdown-menu').removeClass('show');
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <!-- Logo eklemek için img etiketi ekliyorum -->
+            <img src="~/wwwroot/Images/logo.png" alt="Infinity Items Logo" class="navbar-brand" />
+            @Html.ActionLink("INFINITY ITEMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown">
+
+                            @Html.ActionLink("Products", "Index", "Product", new { area = "" }, new { @class = "dropdown-item" })
+
+                            <div class="dropdown-menu" aria-labelledby="productDropdown">
+                                @Html.ActionLink("Game Console & Accessories", "gameConsole", "Product", new { area = "" }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Gaming Computers & Accessories", "gamingComputers", "Product", new { area = "" }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Gaming Headsets & Sound Systems", "gamingHeadsets", "Product", new { area = "" }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Gaming Tables & Chairs", "gamingTables", "Product", new { area = "" }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Gaming Accessories", "gamingAccessories", "Product", new { area = "" }, new { @class = "dropdown-item" })
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+   
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <div class="container1">
+                <div class="row">
+                    <div class="col">
+                        <h4>Corporate</h4>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Bounty Program</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Get Help</h4>
+                        <ul>
+                            <li><a href="#">SSS</a></li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Return</a></li>
+                            <li><a href="#">Order Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>E-Commerce</h4>
+                        <ul>
+                            <li><a href="#">Game Console & Accessories</a></li>
+                            <li><a href="#">Gaming Computers & Accessories</a></li>
+                            <li><a href="#">Gaming Tables & Chairs</a></li>
+                            <li><a href="#">Gaming Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p>&copy; @DateTime.Now.Year - INFINITY ITEMS </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

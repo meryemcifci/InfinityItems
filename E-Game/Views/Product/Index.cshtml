@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+    string[] icerikler = { "Game Console & Accessories", "Gaming Computers & Accessories", "Gaming Headsets & Sound Systems", "Gaming Tables & Chairs", "Gaming Accessories" };
+}
+
+<h2>KEŞFET</h2>
+<hr />
+<ul>
+    @foreach (var icerik in icerikler)
+    {
+        <li>
+            @icerik
+        </li>
+    }
+</ul>
+

@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+ <style>
+     
+     .contact .content h2 {
+         font-size: 36px;
+         font-weight: 500;
+         color: #fff;
+     }
+     .contact .content p {
+         font-weight: 300;
+         color: #fff;
+     }
+     .container .contactInfo .box .text h3 {
+         font-weight: 500;
+         color: #212529;
+     }
+    .contactForm h2 {
+       
+        font-size: 40px;
+        color: #212529;
+        font-weight: 200;
+        text-align:center;
+    }
+     .contactForm .inputBox {
+         position: relative;
+         width: 50%;
+         margin-top: 10px;
+         margin: 0 auto;
+     }
+     .contactForm .inputBox input,
+     .contactForm .inputBox textarea {
+         width: 100%;
+         padding: 5px 0;
+         font-size: 16px;
+         margin: 10px 0;
+         border: none;
+         border-bottom: 2px solid #212529;
+         outline: none;
+         resize: none;
+     }
+     .contactForm .inputBox span {
+         position: absolute;
+         left: 0;
+         padding: 5px 5px;
+         font-size: 16px;
+         margin: 10px 5px;
+         pointer-events: none;
+         transition: 0,5s;
+         color: #ccc;
+     }
+     .contactForm .inputBox input:focus ~ span,
+     .contactForm .inputBox input:valid ~ span,
+     .contactForm .inputBox textarea:focus ~ span,
+     .contactForm .inputBox textarea:valid ~ span {
+         color: #e91e63;
+         font-size: 12px;
+         transform: translateY(-20px);
+     }
+    .contactForm .inputBox input[type="submit"] {
+        width: 100px;
+        background: #00ffff;
+        
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 18px;
+    }
+     .contactInfo, .contactForm {
+         width: 50%; 
+         margin: 0 auto;
+     }
+     .contact {
+         padding: 20px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         background-color: #212529; /* Çerçeve arkaplan rengi */
+     }
+    .contact .container {
+        display: flex;
+        width: 100%;
+        max-width: 1200px; /* Maksimum genişlik ayarı, isteğe bağlı */
+    }
+
+    .contact .content {
+        text-align: center;
+    }
+
+    .contact .contactInfo,
+    .contact .contactForm {
+        flex: 1;
+        margin: 20px;
+        padding: 20px;
+        background-image: linear-gradient( to top right, #212529, #00ffff );
+        box-shadow: 0 0 5px #00ffff;
+        border-radius: 8px;
+    }
+
+    .contact .contactInfo .box,
+    .contact .contactForm form {
+        text-align: left;
+    }
+
+     .contact .contactInfo .box {
+         display: flex;
+         margin: 20px;
+         padding: 20px;
+         box-shadow: 0 0 5px #00ffff;
+         border-radius: 8px;
+         text-align: left;
+     }
+     .contactInfo .box .text p {
+         color: #ccc;
+     }
+
+    .contact .contactInfo .box .icon {
+        font-size: 24px;
+        margin-right: 20px;
+    }
+
+    .contact .contactInfo .box .text {
+        flex: 1;
+    }
+
+    .contact .contactForm h2 {
+        margin-bottom: 20px;
+    }
+    .contact .contactForm .inputBox {
+        margin-bottom: 20px;
+    }
+    .contact .contactForm input[type="text"],
+    .contact .contactForm textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        box-sizing: border-box;
+    }
+     .contact .contactForm input[type="submit"] {
+         background-color: #212529;
+         width: 100%;
+         color: #fff;
+         padding: 10px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         opacity: 0.7;
+         transition: opacity 0.7s;
+     }
+     .inputBox input,
+     .inputBox textarea {
+       
+         width: 100%;
+         padding: 10px;
+         font-size: 16px;
+         margin-bottom: 5px;
+         border: none;
+         border-bottom: 1px solid #ccc;
+         outline: none;
+         background-color: transparent; 
+     }
+
+
+</style>
+
+<main aria-labelledby="title">
+    <section class="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p> </p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p> 410 Terry Ave N, Seattle 98109, WA   </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p> 123-456-7890  </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>E-Mail</h3>
+                        <p> info@infinityitems.com   </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form>
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="name" required="required" />
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="name" required="required" />
+                        <span>E-Mail</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"> </textarea>
+                        <span>Type your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+       
+</main>
